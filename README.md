@@ -1,28 +1,45 @@
 # ChatMT – RAG sul Dialetto Materano
 
-Benvenuti in **ChatMT**, un progetto di **Retrieval-Augmented Generation** dedicato alla cultura e al dialetto di Matera. L’obiettivo è creare un assistente virtuale in grado di:
-- Suggerire proverbi materani e tradurne il significato.  
-- Fornire informazioni turistiche e culturali su Matera.  
-- (In futuro) Tradurre frasi dall’italiano al dialetto materano con un motore dedicato.
-
-> **Nota**: Per una panoramica architetturale più approfondita, verrà pubblicato un file separato, **report.md**, che descriverà in dettaglio la struttura del progetto e le scelte tecniche adottate.
+Benvenuti in **ChatMT**, un progetto di **Retrieval-Augmented Generation** dedicato alla cultura e al dialetto di Matera.
 
 ---
 
-## Struttura Principale
+## Caratteristiche Principali
 
-- `data/`: conterrà i PDF e i dati scaricati (proverbi da WikiMatera, dizionario dialettale, etc.).
-- `src/`: codice principale, suddiviso in moduli per ingestion, embeddings, LLM, indexing, pipeline, etc.
-- `tests/`: test automatici per convalidare il funzionamento delle varie parti del sistema.
-- `.github/workflows/`: pipeline CI (ad es. test e linting su GitHub).
+- **Proverbi e tradizioni**: suggerisce proverbi materani e ne spiega il significato.
+- **Informazioni turistiche**: integra dati estratti da WikiMatera.
+- **Dialetto**: (futuro) traduzione dall’italiano al dialetto materano con un motore dedicato.
 
 ---
 
-## Requisiti
+## Installazione e Setup Rapido
 
-- **Python 3.9+** (consigliato).
-- Librerie: `pdfplumber`, `requests`, `beautifulsoup4`, `llama-index` o simili, e un modulo/SDK per *DeepSeek*.
+1. **Clona la repo** (in SSH o HTTPS, come preferisci):
+   ```bash
+   git clone git@github.com:andmon97/ChatMT.git
+   cd ChatMT
+   ```
 
-Installa i pacchetti necessari con:
-```bash
-pip install -r requirements.txt
+2. **Installa Ollama in locale** (macOS o Linux in base alle istruzioni ufficiali):
+   - Metodo rapido su macOS:
+     ```bash
+     curl -fsSL https://ollama.com/install.sh | sh
+     ```
+   - Consulta [https://github.com/jmorganca/ollama](https://github.com/jmorganca/ollama) per altre piattaforme (build da sorgente).
+
+3. **Scarica il modello DeepSeek-R1-Distill-Qwen-7B** con Ollama:
+   ```bash
+   ollama pull deepseek-r1:7b
+   ```
+
+4. **Esegui il modello in test rapido**:
+   ```bash
+   ollama run deepseek-r1:7b
+   ```
+
+5. **(Opzionale) Avvia Ollama in modalità server:
+    ```bash
+   ollama serve
+   ```
+
+   Ascolta di default su localhost:11411. Puoi inviare richieste REST dal tuo codice.
