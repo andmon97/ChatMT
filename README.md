@@ -29,12 +29,12 @@ Benvenuti in **ChatMT**, un progetto di **Retrieval-Augmented Generation** dedic
 
 3. **Scarica il modello DeepSeek-R1-Distill-Qwen-7B** con Ollama:
    ```bash
-   ollama pull deepseek-r1:7b
+   ollama pull deepseek-r1:8b
    ```
 
 4. **Esegui il modello in test rapido**:
    ```bash
-   ollama run deepseek-r1:7b
+   ollama run deepseek-r1:8b
    ```
 
 5. **(Opzionale) Avvia Ollama in modalità server:
