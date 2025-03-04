@@ -23,13 +23,13 @@ load_dotenv(find_dotenv())
 logging.basicConfig(level=logging.INFO)
 
 # Set starting URL (the proverbs page) and CSS selector for the main content.
-BASE_URLS = [
-    "https://www.wikimatera.it/cose-da-sapere-su-matera/il-dialetto-materano/i-proverbi-materani/",
-    "https://www.wikimatera.it/cose-da-sapere-su-matera/il-dialetto-materano/soprannomi-piu-diffusi/",
-    "https://www.wikimatera.it/cose-da-sapere-su-matera/il-dialetto-materano/grammatica-di-base/",
-    "https://www.wikimatera.it/cose-da-sapere-su-matera/il-dialetto-materano/unita-di-misura/",
-    "https://www.wikimatera.it/cose-da-sapere-su-matera/il-dialetto-materano/numeri-u-nimmr/",
-    "https://www.wikimatera.it/cose-da-sapere-su-matera/il-dialetto-materano/la-famiglia-ed-nomi/"]  
+# BASE_URLS = [
+#     "https://www.wikimatera.it/cose-da-sapere-su-matera/il-dialetto-materano/i-proverbi-materani/",
+#     "https://www.wikimatera.it/cose-da-sapere-su-matera/il-dialetto-materano/soprannomi-piu-diffusi/",
+#     "https://www.wikimatera.it/cose-da-sapere-su-matera/il-dialetto-materano/grammatica-di-base/",
+#     "https://www.wikimatera.it/cose-da-sapere-su-matera/il-dialetto-materano/unita-di-misura/",
+#     "https://www.wikimatera.it/cose-da-sapere-su-matera/il-dialetto-materano/numeri-u-nimmr/",
+#     "https://www.wikimatera.it/cose-da-sapere-su-matera/il-dialetto-materano/la-famiglia-ed-nomi/"]  
 CSS_SELECTOR = ".entry-content"  # Adjust if the main content container is different
 
 def extract_internal_links(html_content: str, current_url: str) -> list:
@@ -104,19 +104,20 @@ async def recursive_crawl(start_url: str, max_depth: int = 2) -> dict:
     return all_content
 
 async def main():
+    wiki_folder = os.getenv("WIKI_FOLDER")
+    base_urls = os.getenv("BASE_URLS").split(",")
     # Starting URLs list (BASE_URLS) should be defined in your config
     all_md_total = {}
-    for base_url in BASE_URLS:
+    for base_url in base_urls:
         logging.info(f"Starting recursive crawl from: {base_url}")
         md_result = await recursive_crawl(base_url, max_depth=2)
         # Merge results: If the same URL appears in multiple crawls, the latter will overwrite the former.
         all_md_total.update(md_result)
 
-    output_folder = "docs_markdown"
-    os.makedirs(output_folder, exist_ok=True)
+    os.makedirs(wiki_folder, exist_ok=True)
     for idx, (url, md_content) in enumerate(all_md_total.items()):
         filename = f"page_{idx}.md"
-        filepath = os.path.join(output_folder, filename)
+        filepath = os.path.join(wiki_folder, filename)
         with open(filepath, "w", encoding="utf-8") as f:
             f.write(md_content)
         logging.info(f"Saved content from {url} to {filepath}")
