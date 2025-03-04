@@ -2,6 +2,8 @@ import pdfplumber
 import re
 from dotenv import load_dotenv, find_dotenv
 from pathlib import Path
+import requests
+import logging
 import os
 
 def merge_splitted_words(lines):
@@ -114,10 +116,31 @@ def parse_dizionario_pdf(pdf_path: str):
     return vocab_list
 
 def main():
+    # voglio che scarichi il pdf da un link e continui con qiello che ho fatto
+    link_file_download = "https://www.wikimatera.it/wp-content/uploads/2016/05/dizionario_dialetto_materano_matera.pdf"
+    name_file = "dizionario_dialetto_materano_matera.pdf"
     # Carica il file .env (find_dotenv cerca il file a partire dalla cartella corrente verso l'alto)
     load_dotenv(find_dotenv())
     # Usa il percorso definito in .env, che è relativo alla posizione del file di esecuzione
     pdf_path = Path(os.getenv("PDF_DICTIONARY"))
+    pdf_folder = os.getenv("PDF_FOLDER")
+    
+    if not os.path.exists(pdf_folder):
+        os.makedirs(pdf_folder)
+
+    # Scarica il file
+    response = requests.get(link_file_download)
+    if response.status_code == 200:
+        with open(pdf_path, "wb") as f:
+            f.write(response.content)
+        logging.basicConfig(level=logging.INFO)
+        logger = logging.getLogger(__name__)
+        logger.info("Download completato!") 
+    else:
+        logging.basicConfig(level=logging.ERROR)
+        logger = logging.getLogger(__name__)
+        logger.error("Errore durante il download:", response.status_code)
+
     vocab = parse_dizionario_pdf(str(pdf_path))
 
     # Ordina la lista in ordine alfabetico per 'termine_dialetto'
