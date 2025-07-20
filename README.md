@@ -66,7 +66,7 @@ User Input → Chat Manager → Specialized Agents → Coordinated Response
 ## 🛠️ Stack Tecnologico
 
 ### Core Technologies
-- **Python 3.11+**
+- **Python 3.12+**
 - **LangGraph** - Workflow orchestration
 - **LangChain** - LLM integration
 - **Ollama** - Local LLM models
@@ -82,7 +82,6 @@ User Input → Chat Manager → Specialized Agents → Coordinated Response
 ### Web Framework (Futuro)
 - **Streamlit** or **Gradio** - Chat interface
 - **FastAPI** - Backend API
-- **CrewAI** or **AutoGen** - Multi-agent orchestration
 
 ## 🗄️ Data Storage Strategy
 
@@ -341,7 +340,7 @@ Il progetto è aperto a contributi di:
 
 ## 📄 Licenza
 
-[Da definire - open source per la parte tecnica]
+[Da definire - considerare licenza open source per la parte tecnica]
 
 ## 🙏 Riconoscimenti
 
