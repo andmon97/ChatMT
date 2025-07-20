@@ -1,0 +1,279 @@
+# ChatMT - Chatbot Dialetto Materano
+# .gitignore
+
+# ==============================================================================
+# Python
+# ==============================================================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# ==============================================================================
+# Virtual Environments & UV
+# ==============================================================================
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.python-version
+
+# ==============================================================================
+# Data Files (sensitive/large files)
+# ==============================================================================
+# Original PDF dictionary (keep in raw/ but ignore copies)
+data/raw/dizionario_materano.pdf
+data/raw/images/
+data/scraped/
+data/processed/
+data/exports/
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Redis dumps
+dump.rdb
+*.rdb
+
+# ==============================================================================
+# Environment & Configuration
+# ==============================================================================
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+config/secrets.yaml
+config/local.yaml
+
+# ==============================================================================
+# Logs
+# ==============================================================================
+logs/
+*.log
+*.log.*
+log_*
+
+# ==============================================================================
+# AI/ML Models & Cache
+# ==============================================================================
+models/
+*.pkl
+*.pickle
+model_cache/
+embeddings/
+checkpoints/
+
+# Ollama models (if downloaded locally)
+ollama_models/
+
+# OpenAI cache
+openai_cache/
+
+# Vector embeddings
+*.npy
+*.npz
+
+# ==============================================================================
+# Jupyter Notebooks
+# ==============================================================================
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+notebooks/*.ipynb_checkpoints
+notebooks/*/.ipynb_checkpoints/*
+
+# Jupyter Notebook outputs (optional - uncomment if you want to ignore)
+# notebooks/*.ipynb
+
+# ==============================================================================
+# Testing
+# ==============================================================================
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+
+# ==============================================================================
+# IDEs and Editors
+# ==============================================================================
+# VSCode
+.vscode/
+*.code-workspace
+
+# PyCharm
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# ==============================================================================
+# OS Files
+# ==============================================================================
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# ==============================================================================
+# Deployment & DevOps
+# ==============================================================================
+# Docker
+.dockerignore
+
+# Kubernetes
+k8s/secrets/
+
+# Terraform
+*.tfstate
+*.tfstate.*
+.terraform/
+.terraform.lock.hcl
+
+# ==============================================================================
+# Temporary Files
+# ==============================================================================
+tmp/
+temp/
+*.tmp
+*.temp
+*.bak
+*.backup
+*.orig
+
+# ==============================================================================
+# Performance & Monitoring
+# ==============================================================================
+.profile
+profiling/
+*.prof
+
+# ==============================================================================
+# Project Specific
+# ==============================================================================
+# Chat conversation histories
+conversations/
+chat_history/
+
+# User generated content
+user_content/
+uploads/
+
+# External resources downloaded at runtime
+external_resources/
+
+# Development notes (keep personal)
+dev_notes.md
+TODO_personal.md
+NOTES.md
+
+# Benchmark results
+benchmarks/results/
+performance_logs/
+
+# ==============================================================================
+# Security
+# ==============================================================================
+# API keys and secrets
+*.pem
+*.key
+*.crt
+secrets/
+.secrets/
+
+# ==============================================================================
+# Documentation Build
+# ==============================================================================
+docs/_build/
+docs/build/
+site/
+
+# ==============================================================================
+# Keep these example files
+# ==============================================================================
+!.env.example
+!docs/examples/
+!tests/fixtures/sample_*.json
+
+# ==============================================================================
+# Folder setup script
+# ==============================================================================
+setup_chatmt.sh
+
