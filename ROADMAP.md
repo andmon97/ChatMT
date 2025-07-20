@@ -34,28 +34,27 @@ Sviluppo incrementale da MVP semplice a sistema multi-agente completo per preser
 ## 🌿 **Strategia Git Branching**
 
 ```
-main (stable releases)
-├── develop (integration branch)
+main (production releases + daily contributions)
 ├── feature/phase-1-mvp
-│   ├── feature/pdf-extraction
-│   ├── feature/redis-setup
-│   ├── feature/langgraph-basic
-│   └── feature/cli-interface
+│   ├── feature/pdf-extraction → main
+│   ├── feature/redis-setup → main
+│   ├── feature/langgraph-basic → main
+│   └── feature/cli-interface → main
 ├── feature/phase-2-knowledge
-│   ├── feature/wikimatera-scraper
-│   ├── feature/phonetic-rules
-│   ├── feature/cultural-context
-│   └── feature/vector-search
+│   ├── feature/wikimatera-scraper → main
+│   ├── feature/phonetic-rules → main
+│   ├── feature/cultural-context → main
+│   └── feature/vector-search → main
 ├── feature/phase-3-conversational
-│   ├── feature/intent-recognition
-│   ├── feature/persona-development
-│   ├── feature/web-interface
-│   └── feature/conversation-memory
+│   ├── feature/intent-recognition → main
+│   ├── feature/persona-development → main
+│   ├── feature/web-interface → main
+│   └── feature/conversation-memory → main
 ├── feature/phase-4-multi-agent
-    ├── feature/agent-architecture
-    ├── feature/specialized-agents
-    ├── feature/langgraph-multi-agent
-    └── feature/advanced-orchestration
+    ├── feature/agent-architecture → main
+    ├── feature/specialized-agents → main
+    ├── feature/langgraph-multi-agent → main
+    └── feature/advanced-orchestration → main
 ```
 
 ---
